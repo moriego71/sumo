@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes>
+
+    <vType id="rojo"
+           color="1,0,0"
+           accel="2.6" decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <vType id="azul"
+           color="0,0,1"
+           accel="2.6" decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <vType id="verde"
+           color="0,1,0"
+           accel="2.6" decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <vType id="amarillo"
+           color="1,1,0"
+           accel="2.6" decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <vType id="blanco"
+           color="1,1,1"
+           accel="2.6" decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <vType id="violeta"
+           color="1,0,1"
+           accel="2.6" decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <route id="loop"
+           edges="E0 E2 E8 E9 E10 E11 E12 E13"/>
+
+    <flow id="rojo"
+          type="rojo"
+          route="loop"
+          begin="0"
+          end="400"
+          period="12"/>
+
+    <flow id="azules"
+          type="azul"
+          route="loop"
+          begin="2"
+          end="400"
+          period="12"/>
+
+    <flow id="verdes"
+          type="verde"
+          route="loop"
+          begin="4"
+          end="400"
+          period="12"/>
+
+    <flow id="amarillos"
+          type="amarillo"
+          route="loop"
+          begin="6"
+          end="400"
+          period="12"/>
+
+    <flow id="blancos"
+          type="blanco"
+          route="loop"
+          begin="8"
+          end="400"
+          period="12"/>
+
+    <flow id="violetas"
+          type="violeta"
+          route="loop"
+          begin="10"
+          end="400"
+          period="12"/>
+
+</routes>

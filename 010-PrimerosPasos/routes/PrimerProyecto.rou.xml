@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes>
+
+    <vType id="car"
+           accel="2.6"
+           decel="4.5"
+           sigma="0.5"
+           length="5"
+           maxSpeed="13.9"/>
+
+    <route id="loop"
+           edges="E3 E4 E5 E7"/>
+
+    <flow id="traffic"
+          type="car"
+          route="loop"
+          begin="0"
+          end="600"
+          period="2"/>
+
+</routes>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<additional>
+
+    <parkingArea id="P1"
+                 lane="E10_0"
+                 startPos="10"
+                 endPos="40"
+                 roadsideCapacity="5"
+                 angle="90"
+                 name="Parking_E10"/>
+
+</additional>
