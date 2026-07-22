@@ -735,7 +735,51 @@ No deberá utilizarse la documentación para describir literalmente el funcionam
 
 ---
 
-# 9. Interacción con el Desarrollador
+# 9. Control de Versiones
+
+## Uso de Git
+
+Todo cambio incorporado al proyecto deberá registrarse mediante Git.
+
+Cada commit deberá representar una unidad lógica de trabajo claramente identificable.
+
+Se evitarán commits que agrupen modificaciones no relacionadas entre sí.
+
+---
+
+## Convención de commits
+
+Los mensajes de commit deberán redactarse en inglés y respetar la especificación Conventional Commits.
+
+Se utilizarán, según corresponda, los siguientes prefijos:
+
+- feat:
+- fix:
+- refactor:
+- docs:
+- test:
+- chore:
+- perf:
+- build:
+- ci:
+
+El mensaje deberá describir de forma breve y precisa el propósito del cambio.
+
+---
+
+## Frecuencia de commits
+
+Se recomienda realizar commits pequeños y frecuentes.
+
+Cada iteración podrá contener múltiples commits intermedios.
+
+La iteración deberá finalizar con un commit estable que cumpla el Quality Gate definido para dicha iteración.
+
+Los commits deberán reflejar la evolución real del proyecto y facilitar la reconstrucción histórica de las decisiones de diseño e implementación.
+
+---
+
+# 10. Interacción con el Desarrollador
 
 La IA deberá actuar como un asistente técnico de ingeniería de software, colaborando activamente en el diseño, implementación y evolución del proyecto.
 
@@ -796,7 +840,7 @@ La IA deberá indicar claramente cuando una respuesta represente:
 
 ---
 
-# 10. Evolución del Proyecto
+# 11. Evolución del Proyecto
 
 La plataforma deberá evolucionar de forma controlada, preservando la estabilidad de la arquitectura y facilitando la incorporación de nuevas funcionalidades.
 
@@ -882,7 +926,7 @@ Toda modificación arquitectónica deberá preservar los principios definidos en
 
 ---
 
-# 11. Toma de Decisiones Técnicas
+# 12. Toma de Decisiones Técnicas
 
 Durante el desarrollo del proyecto podrán existir múltiples alternativas técnicamente válidas para resolver un mismo problema.
 
@@ -934,7 +978,7 @@ Toda decisión de diseño que implique modificar la arquitectura, incorporar nue
 
 ---
 
-# 12. Estrategia de Pruebas
+# 13. Estrategia de Pruebas
 
 Toda funcionalidad incorporada al proyecto deberá ser validada antes de considerarse finalizada.
 
@@ -984,7 +1028,7 @@ La estrategia de pruebas podrá ampliarse y refinarse durante el desarrollo del 
 
 ---
 
-# 13. Revisión Arquitectónica
+# 14. Revisión Arquitectónica
 
 La arquitectura del sistema deberá revisarse periódicamente para garantizar que continúe respetando los principios definidos en este AGENTS.
 
@@ -1042,7 +1086,7 @@ Su objetivo no es impedir el avance del proyecto, sino facilitar una evolución 
 
 ---
 
-# 14. Atributos de Calidad de la Plataforma
+# 15. Atributos de Calidad de la Plataforma
 
 La plataforma posee un doble objetivo:
 
@@ -1055,7 +1099,7 @@ Estos atributos constituyen objetivos permanentes del proyecto y deberán consid
 
 ---
 
-## 14.1 Atributos de Ingeniería
+## 15.1 Atributos de Ingeniería
 
 En esta sección se definen los atributos relacionados con la calidad del software como producto de ingeniería.
 
@@ -1149,7 +1193,7 @@ Toda ejecución experimental deberá dejar evidencia suficiente para permitir su
 
 ---
 
-## 14.2 Atributos Científicos
+## 15.2 Atributos Científicos
 En esta sección se definen los atributos relacionados con la calidad de la plataforma como herramienta de investigación científica.
 
 - Confiabilidad Experimental
@@ -1203,7 +1247,7 @@ La plataforma deberá diseñarse para ser utilizada por otros investigadores, ev
 
 ---
 
-# 15. Priorización y Resolución de Trade-offs
+# 16. Priorización y Resolución de Trade-offs
 
 ## Principio General
 
@@ -1269,7 +1313,7 @@ Este orden constituye la regla general de decisión. No obstante, cuando exista 
 
 ---
 
-# 16- Resolución de Trade-offs
+# 17- Resolución de Trade-offs
 
 Durante el diseño e implementación podrán presentarse conflictos entre dos o más atributos de calidad.
 
@@ -1333,7 +1377,7 @@ Los siguientes Trade-offs representan decisiones arquitectónicas permanentes de
 
 
 
-## 16.2 Arquitectura del Software
+## 17.2 Arquitectura del Software
 
 +-----------------+-----------------+------------------------------+----------------------+
 | Conflicto       | Se prioriza     | Acción esperada              | Justificación        |
@@ -1376,7 +1420,7 @@ Los siguientes Trade-offs representan decisiones arquitectónicas permanentes de
 
 
 
-## 16.3 Plataforma de Investigación
+## 17.3 Plataforma de Investigación
 
 La prioridad del proyecto es construir una plataforma de investigación reutilizable.
 
@@ -1409,7 +1453,7 @@ Las investigaciones particulares deberán desarrollarse sobre dicha plataforma y
 
 
 
-## 16.4 Ingeniería del Software
+## 17.4 Ingeniería del Software
 
 +-----------------+-----------------+------------------------------+----------------------+
 | Conflicto       | Se prioriza     | Acción esperada              | Justificación        |
@@ -1441,7 +1485,7 @@ Las investigaciones particulares deberán desarrollarse sobre dicha plataforma y
 
 ---
 
-# 17. Quality Gate (Criterios Permanentes de Finalización)
+# 18. Quality Gate (Criterios Permanentes de Finalización)
 
 El presente **Quality Gate** establece las verificaciones permanentes del proyecto.
 
@@ -1573,7 +1617,7 @@ Las verificaciones no aplicables deberán indicarse expresamente durante el cier
 
 ---
 
-# 18- Historial del AGENTS
+# 19- Historial del AGENTS
 
 Este documento constituye la especificación permanente del proyecto.
 
