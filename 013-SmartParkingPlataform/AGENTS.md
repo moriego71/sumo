@@ -588,10 +588,12 @@ Se utilizarán los siguientes idiomas según el contexto:
 - Código fuente: inglés.
 - Nombres de clases, funciones y variables: inglés.
 - Nombres de archivos de código: inglés.
+- Nombres de carpetas, archivos técnicos, módulos y recursos: inglés
 - Documentación técnica: castellano.
 - Comentarios del código: castellano.
 - Mensajes dirigidos al usuario: castellano.
-
+- artefactos de ingeniería (ADR, especificaciones, iteraciones, modelo conceptual, etc.) deberán redactarse en castellano, salvo que exista una razón específica para hacerlo en otro idioma.
+  
 ---
 
 ## Organización del código
