@@ -237,7 +237,7 @@ Toda evolución del sistema deberá respetar los siguientes principios:
 - Responsabilidad única por módulo.
 - Alta cohesión.
 - Bajo acoplamiento.
-- Separación entre lógica de negocio e infraestructura.
+- Separación entre lógica de negocio e infraestructura experimental.
 - Separación entre simulación y reglas de negocio.
 - Componentes reutilizables.
 - Arquitectura preparada para evolución incremental.
@@ -271,6 +271,8 @@ La plataforma deberá separar claramente:
 
 Cada uno de estos componentes deberá poder evolucionar independientemente.
 
+La plataforma deberá aprovechar las capacidades nativas de SUMO siempre que satisfagan adecuadamente los requerimientos de investigación. Sólo se desarrollarán funcionalidades propias cuando aporten capacidades no disponibles en SUMO, mejoren significativamente la automatización del proceso experimental o reduzcan el acoplamiento con el simulador.
+
 ---
 
 ## Lógica de Negocio
@@ -292,6 +294,22 @@ Las decisiones relacionadas con:
 - gestión de experimentos;
 
 deberán implementarse exclusivamente dentro de la lógica de negocio de la plataforma.
+
+### Modelado del Comportamiento
+Siempre que el dominio represente comportamientos, procesos o ciclos de vida, éstos deberán modelarse explícitamente mediante estados y transiciones de estado.
+
+Se evitarán implementaciones basadas en múltiples variables booleanas o lógica condicional dispersa cuando un modelo de estados resulte más claro, expresivo y mantenible.
+
+Cuando corresponda, la documentación deberá incluir el diagrama de estados asociado.
+
+### Composición de Escenarios
+Los Activos del Dominio deberán permanecer completamente desacoplados de los escenarios experimentales.
+
+Los escenarios se construirán mediante la composición de activos previamente definidos y reutilizables, sin modificar su definición interna.
+
+Un mismo activo podrá participar en múltiples escenarios, configuraciones experimentales o campañas sin requerir duplicación ni adaptaciones específicas.
+
+La composición de un escenario no deberá alterar la identidad, capacidades, estados ni comportamiento propio de los activos que lo integran.
 
 ---
 
@@ -629,6 +647,25 @@ Cuando una implementación requiera modificar varios archivos, la IA deberá ind
 Toda nueva implementación deberá respetar las convenciones previamente adoptadas por el proyecto.
 
 No deberán introducirse cambios de estilo, organización o nomenclatura sin una justificación explícita.
+
+---
+
+### Clasificación de Requerimientos
+
+Los requerimientos de la plataforma deberán clasificarse explícitamente según su naturaleza:
+
+- **[RF]** Requerimiento Funcional.
+- **[RNF]** Requerimiento No Funcional.
+
+La clasificación se aplicará únicamente a **Features** y **User Stories**, ya que representan requerimientos concretos del sistema.
+
+Las **Épicas** constituyen agrupadores temáticos y no deberán clasificarse como funcionales o no funcionales.
+
+Una épica RF puede contener tanto Features RF como RNF;
+representa una capacidad funcional, que naturalmente puede requerir mecanismos de calidad (validación, auditoría, trazabilidad, persistencia, etc.).
+
+Una épica RNF debería contener únicamente Features RNF;
+representa un atributo de calidad de la plataforma.
 
 ---
 
@@ -1238,9 +1275,9 @@ Deberá facilitar el aumento de:
 ---
 
 ### Evolución Científica
-La plataforma deberá facilitar la incorporación de nuevas hipótesis de investigación.
+La plataforma deberá facilitar el desarrollo de nuevas campañas experimentales orientadas a responder distintos problemas, objetivos o preguntas de investigación.
 
-Cuando una nueva hipótesis requiera modificaciones arquitectónicas, la IA deberá exponer previamente el impacto esperado, analizar alternativas y discutirlas con el diseñador antes de implementar cualquier cambio.
+Cuando una nueva campaña requiera modificaciones arquitectónicas, la IA deberá exponer previamente el impacto esperado, analizar las alternativas disponibles y discutirlas con el diseñador antes de implementar cualquier cambio.
 
 ---
 
@@ -1432,7 +1469,7 @@ Las investigaciones particulares deberán desarrollarse sobre dicha plataforma y
 | Conflicto       | Se prioriza     | Acción esperada              | Justificación        |
 +-----------------+-----------------+------------------------------+----------------------+
 | Evolución       | Estabilidad     | Incorporar nuevas            | Preservar la         |
-| Científica      | del Núcleo      | hipótesis mediante           | estabilidad          |
+| Científica      | del Núcleo      | campañas mediante            | estabilidad          |
 | vs.             |                 | módulos, extensiones o       | arquitectónica de    |
 | Estabilidad     |                 | puntos de extensión,         | la plataforma.       |
 | del Núcleo      |                 | evitando modificar el        |                      |
@@ -1592,7 +1629,6 @@ Deberá presentarse un resumen de las verificaciones efectuadas y su resultado, 
 ---
 
 ## Aprobación
-
 Una iteración sólo podrá considerarse finalizada cuando todas las verificaciones obligatorias hayan sido completadas satisfactoriamente.
 
 En caso de detectarse incumplimientos, la IA deberá informar claramente:
@@ -1620,7 +1656,6 @@ Las verificaciones no aplicables deberán indicarse expresamente durante el cier
 ---
 
 # 19- Historial del AGENTS
-
 Este documento constituye la especificación permanente del proyecto.
 
 Su evolución deberá realizarse de forma controlada.

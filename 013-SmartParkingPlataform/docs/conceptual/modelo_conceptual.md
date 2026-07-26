@@ -1,45 +1,3 @@
-
-
-
-
-
-## Flujo científico general
-#### ¿Cómo se desarrolla una investigación?
-
-Hipótesis
-↓
-Campaña Experimental
-↓
-Configuración Experimental
-↓
-Experimentos
-↓
-Simulaciones
-↓
-Resultados
-↓
-Métricas
-↓
-Análisis
-↓
-Conclusiones
-
-
-## Subsistemas
-
-Plataforma
-│
-├── Gestión Experimental
-├── Simulación
-├── Infraestructura
-├── Estrategias
-├── Métricas
-├── Persistencia
-├── Visualización
-└── Interfaz
-
-**************************************************
-
 # Modelo Conceptual
 
 ## 1. Propósito
@@ -73,14 +31,14 @@ El modelo conceptual de la plataforma se construye sobre los siguientes concepto
 
 - Plataforma de Investigación
 - Campaña Experimental
+- Infraestructura
 - Experimento
 - Configuración Experimental
 - Ejecución
-- Escenario
+- Escenario urbano
 - Estrategia
 - Resultado
 - Métrica
-- Hipótesis
 - Conclusión
 - 
 
@@ -90,27 +48,35 @@ Sistema de software destinado a diseñar, ejecutar y analizar experimentos relac
 
 La plataforma proporciona la infraestructura necesaria para desarrollar investigaciones de manera configurable, reutilizable y trazable, desacoplando la infraestructura experimental de las estrategias específicas que se deseen evaluar.
 
-Se compone de campañas experimentales, experimentos, escenarios, estrategias, mecanismos de ejecución y herramientas para el análisis de resultados.
-
+Se compone de campañas experimentales, escenarios urbanos, infraestructuras experimentales, estrategias, mecanismos de ejecución y herramientas para el análisis de resultados.
 
 ### Campaña Experimental
 
-Conjunto organizado de experimentos destinados a validar una misma hipótesis o responder una misma pregunta de investigación.
+Conjunto organizado de experimentos orientados a estudiar un mismo problema, objetivo o pregunta de investigación.
 
-Una campaña define el objetivo científico de la investigación y agrupa los experimentos, sus configuraciones experimentales, las ejecuciones realizadas, los resultados obtenidos, las métricas calculadas y las conclusiones derivadas.
+Una campaña constituye la unidad principal de organización del trabajo científico dentro de la plataforma, agrupando los experimentos, sus configuraciones, las ejecuciones realizadas, los resultados obtenidos, las métricas calculadas y las conclusiones derivadas de su análisis.
 
-Constituye la unidad principal de organización del trabajo experimental dentro de la plataforma.
+Su propósito es facilitar la planificación, ejecución y análisis sistemático de investigaciones sobre la gestión inteligente del estacionamiento urbano.
 
 
 ### Configuración Experimental
 
 Conjunto de parámetros que define las condiciones bajo las cuales se desarrollará un experimento.
 
-Una configuración experimental especifica, entre otros aspectos, el escenario urbano, las estrategias utilizadas, el comportamiento de los distintos actores y cualquier otro parámetro necesario para reproducir las condiciones del experimento.
+Una configuración experimental define las condiciones bajo las cuales se desarrollará un experimento, especificando el escenario urbano, la infraestructura experimental, las estrategias utilizadas y los parámetros necesarios para garantizar la reproducibilidad del estudio.
 
 Un mismo experimento podrá ejecutarse múltiples veces utilizando la misma configuración experimental.
 
 Distintas configuraciones permiten comparar el comportamiento del sistema bajo diferentes condiciones experimentales.
+
+
+### Infraestructura
+
+Conjunto de componentes físicos y lógicos desplegados sobre un escenario urbano para conformar el entorno experimental de una investigación.
+
+La infraestructura define los recursos disponibles durante la ejecución de los experimentos, incluyendo, entre otros elementos, zonas de estacionamiento, sensores, grúas, inspectores, dispositivos inteligentes y cualquier otro componente susceptible de ser incorporado, modificado o eliminado durante la evolución del sistema.
+
+Una misma infraestructura podrá utilizarse en múltiples configuraciones experimentales.
 
 
 ### Experimento
@@ -131,28 +97,34 @@ Cada ejecución utiliza la configuración experimental definida para el experime
 La repetición de múltiples ejecuciones bajo las mismas condiciones permite obtener resultados estadísticamente confiables.
 
 Campaña
-    │
-    ├── Experimentos
-    │       │
-    │       ├── Configuración
-    │       │
-    │       ├── Ejecución 1
-    │       ├── Ejecución 2
-    │       ├── Ejecución 3
-    │       └── ...
-    │
-    ├── Resultados
-    ├── Métricas
-    └── Conclusiones
+│
+├── Experimento
+│      │
+│      ├── Configuración Experimental
+│      │      ├── Infraestructura
+│      │      │      ├── Escenario
+│      │      │      ├── Parkings
+│      │      │      ├── Sensores
+│      │      │      └── ...
+│      │      │
+│      │      ├── Estrategia
+│      │      └── Parámetros Experimentales
+│      │
+│      ├── Ejecuciones
+│             └── Resultados
+│
+└── Conclusiones
 
 
-### Escenario
 
-Representación del entorno urbano sobre el cual se desarrollan las ejecuciones de un experimento.
 
-Un escenario define la infraestructura física de la simulación, incluyendo, entre otros elementos, la red vial, las zonas de estacionamiento, las plazas disponibles y cualquier otro componente permanente del entorno.
+### Escenario Urbano  (Escenario)
 
-Un mismo escenario podrá utilizarse en múltiples experimentos y configuraciones experimentales.
+Representación física del entorno urbano sobre el cual se desarrollan los experimentos.
+
+Describe la estructura espacial de la ciudad, incluyendo la red vial y aquellos elementos permanentes que caracterizan el entorno simulado.
+
+Un mismo escenario podrá utilizarse en múltiples configuraciones experimentales.
 
 
 ### Estrategia
@@ -170,7 +142,7 @@ Conjunto de datos obtenidos durante una ejecución de un experimento.
 
 Los resultados representan las observaciones producidas por la plataforma y constituyen la materia prima para el cálculo de métricas y el posterior análisis de la investigación.
 
-Cada ejecución genera un conjunto independiente de resultados.
+Cada ejecución genera un conjunto independiente de resultados que representan las observaciones obtenidas durante esa ejecución específica.
 
 
 ### Métrica
@@ -182,28 +154,24 @@ Las métricas permiten comparar distintas configuraciones experimentales y evalu
 Una misma colección de resultados podrá analizarse mediante diferentes métricas.
 
 
-### Hipótesis
-
-Afirmación o pregunta de investigación cuya validez se pretende analizar mediante una campaña experimental.
-
-La hipótesis establece el objetivo científico de la investigación y orienta el diseño de los experimentos, las métricas a calcular y el análisis de los resultados.
-
-
 ### Conclusión
 
-Interpretación de los resultados obtenidos durante una campaña experimental en relación con la hipótesis planteada.
+Interpretación de los resultados obtenidos durante una campaña experimental a partir del análisis de las métricas calculadas y la evidencia generada por los experimentos.
 
-Las conclusiones sintetizan la evidencia generada por los experimentos y permiten aceptar, rechazar o reformular las hipótesis de investigación.
+Las conclusiones sintetizan el conocimiento obtenido durante la investigación, permitiendo responder la pregunta de investigación, evaluar el comportamiento del sistema bajo las condiciones estudiadas e identificar oportunidades para futuras investigaciones o nuevas campañas experimentales.
 
 
-## 4. Relaciones Conceptuales
+# 4. Relaciones Conceptuales
 
 Las principales relaciones conceptuales de la plataforma son las siguientes:
 
 - Una Plataforma de Investigación contiene múltiples Campañas Experimentales.
-- Una Campaña Experimental se orienta a validar una Hipótesis.
-- Una Campaña Experimental agrupa uno o más Experimentos.
+- Una Campaña Experimental agrupa uno o más Experimentos y constituye la unidad principal de organización del trabajo experimental.
 - Cada Experimento posee una única Configuración Experimental.
+- Una Configuración Experimental referencia un Escenario y define los parámetros bajo los cuales se ejecutará el experimento.
+- Una Configuración Experimental referencia un Escenario Urbano.
+- Una Configuración Experimental referencia una Infraestructura Experimental.
+- Una Configuración Experimental referencia una Estrategia.
 - Un Experimento puede ejecutarse múltiples veces mediante Ejecuciones independientes.
 - Cada Ejecución genera un conjunto de Resultados.
 - Las Métricas se calculan a partir de los Resultados obtenidos en una o varias Ejecuciones.
@@ -214,23 +182,21 @@ Las principales relaciones conceptuales de la plataforma son las siguientes:
 
 Una investigación desarrollada sobre la plataforma sigue, conceptualmente, el siguiente flujo:
 
-Hipótesis
-      │
-      ▼
 Campaña Experimental
-      │
-      ▼
-Experimentos
-      │
-      ├── Configuración Experimental
-      │
-      └── Ejecuciones
-              │
-              ▼
-         Resultados
-              │
-              ▼
-          Métricas
-              │
-              ▼
-          Conclusiones
+        │
+        ▼
+Experimento
+        │
+        ├── Configuración Experimental
+        │
+        ▼
+Ejecuciones
+        │
+        ▼
+Resultados
+        │
+        ▼
+Métricas
+        │
+        ▼
+Conclusiones
